@@ -1,0 +1,103 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+}
+
+body{
+    height: 100vh;
+    background-image: linear-gradient(
+        to bottom,
+        #32a093 0%,
+        #32a093 15%,
+        #dde0dc 15%,
+        #dde0dc 100%
+    );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    display: flex;
+    width: 80%;
+    height: 90%;
+    min-width: 900px;
+    background-color: white;
+}
+
+/* LEFT CONTAINER */
+.left-container{
+    width: 40%;
+    height: 100%;
+}
+
+/* set dimension */
+.user-section{
+    width: 100%;
+    height: 65px;
+    background-color: #ededed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.notifications{
+    width: 100%;
+    height: 70px;
+    background-color: blue;
+}
+
+.search-contact{
+    width: 100%;
+    height: 40px;
+    background-color: rgb(121, 121, 197);
+}
+
+.contact{
+    width: 100%;
+    height: calc(100% - 175px);
+    background-color: green;
+    overflow-y: auto;
+}
+
+
+/* LEFT CONTAINER => user section */
+.user-section div{
+    display: flex;
+    align-items: center;
+}
+
+.account-image{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+.name-user{
+    font-size: 20px;
+}
+
+.user-section div:last-child i{
+    font-size: 18px;
+    color: #bababa;
+}
+.user-section div:last-child i:nth-child(2){
+    margin: 0 10px;
+}
+.user-section div:last-child i:last-child{
+    margin-right: 10px;
+}
+
+
+
+/* RIGHT CONTAINER */
+.right-container{
+    width: 100%;
+}
+
+.right-container .user-section{
+    border-left: 1px solid #bababa;
+}

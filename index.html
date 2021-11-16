@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- font family -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Roboto&display=swap" rel="stylesheet">
+
+    <!-- vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+
+    <!-- font awesome -->
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css' integrity='sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==' crossorigin='anonymous'/>
+
+    <!-- css -->
+    <link rel="stylesheet" href="./css/style.css">
+
+    <title>BoolZapp</title>
+</head>
+<body>
+
+    <div id="app" class="container">
+
+        <!-- left section -->
+        <div class="left-container">
+
+            <section class="user-section">
+
+                <!-- image and name user -->
+                <div>
+                    <img class="account-image" :src="`./img/avatar${user.avatar}.jpg`" alt="">
+
+                    <span class="name-user">{{user.nameUser}}</span>
+
+                </div>
+
+                <!-- icon user -->
+                <div>
+                    <i class="fas fa-circle-notch"></i>
+                    <i class="fas fa-comment new-message"></i>
+                    <i class="fas fa-ellipsis-v"></i>
+
+                </div>
+
+            </section>
+
+            <section class="notifications"></section>
+
+            <section class="search-contact"></section>
+
+            <section class="contact"></section>
+        </div>
+
+        <!-- right section chat -->
+        <div class="right-container">
+
+            <section class="user-section">
+
+                <!-- image and name user -->
+                <div>
+                    <img class="account-image" :src="`./img/avatar${contacts[0].avatar}.jpg`" alt="">
+
+                    <span class="name-user">{{contacts[0].name}}</span>
+
+                </div>
+
+                <!-- icon user -->
+                <div>
+                    <i class="fas fa-circle-notch"></i>
+                    <i class="fas fa-comment new-message"></i>
+                    <i class="fas fa-ellipsis-v"></i>
+
+                </div>
+
+            </section>
+        </div>
+
+    </div>
+
+
+    <script src="./js/main.js"></script>
+</body>
+</html>
