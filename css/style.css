@@ -19,6 +19,11 @@ body{
     align-items: center;
 }
 
+input:focus{
+    border: 3px solid lightblue;
+    outline: 0;
+}
+
 .container{
     display: flex;
     width: 80%;
@@ -42,7 +47,7 @@ body{
 
 /* LEFT CONTAINER */
 .left-container{
-    width: 40%;
+    width: 35%;
     height: 100%;
 }
 
@@ -151,10 +156,7 @@ body{
     border: 0;
     padding-left: 5px;
     background-color: transparent;
-}
 
-.container-search > input:focus{
-    border:1px solid rgba(56, 56, 236, 0.432);
 }
 
 .container-search{
@@ -167,7 +169,7 @@ body{
     border-radius: 5px;
 }
 
-/* LEFT CONTAINER => search section */
+/* LEFT CONTAINER => contact section */
 .list-contact{
     height: 70px;
     list-style: none;
@@ -183,7 +185,7 @@ body{
 
 /* RIGHT CONTAINER */
 .right-container{
-    width: 60%;
+    width: 65%;
     display: flex;
     flex-direction: column;
 }
@@ -274,4 +276,12 @@ body{
     border: 0;
     padding-left: 10px;
     border-radius: 5px;
+}
+
+/* hover contact */
+.contact ul li{
+    transition: background 0.3s;
+}
+.contact ul li:hover{
+    background-color: rgb(209, 209, 209);
 }
