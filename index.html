@@ -29,6 +29,7 @@
         <!-- left section -->
         <div class="left-container">
 
+            <!-- LEFT CONTAINER => user section  -->
             <section class="user-section">
 
                 <!-- image and name user -->
@@ -41,20 +42,47 @@
 
                 <!-- icon user -->
                 <div>
-                    <i class="fas fa-circle-notch"></i>
-                    <i class="fas fa-comment new-message"></i>
-                    <i class="fas fa-ellipsis-v"></i>
+                    <i class="fas fa-circle-notch cursor-pointer"></i>
+                    <i class="fas fa-comment-alt cursor-pointer"></i>
+                    <i class="fas fa-ellipsis-v cursor-pointer"></i>
 
                 </div>
 
             </section>
 
-            <section class="notifications"></section>
+            <!-- LEFT CONTAINER => notifications section  -->
+            <section class="notifications">
 
-            <section class="search-contact"></section>
+                <div>
+                    <div class="icon-notifications">
+                        <i class="fas fa-bell-slash"></i>
+                    </div>
 
+                    <div>
+                        <span class="d-block">Ricevi notifiche di nuovi messaggi</span>
+                        <a href="#" class="d-block color-gray-text">Attiva notifiche desktop</a>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- LEFT CONTAINER => search section  -->
+            <section class="search-contact">
+
+                <div class="container-search">
+
+                    <button class="search-button cursor-pointer">
+                        <i class="fas fa-search cursor-pointer color-gray-text"></i>
+                    </button>
+                    <input type="text" class="color-gray text" placeholder="Cerca o inizia una nuova chat">
+                </div>
+            </section>
+
+            <!-- LEFT CONTAINER => contact section  -->
             <section class="contact"></section>
         </div>
+
+
 
         <!-- right section chat -->
         <div class="right-container">
@@ -65,15 +93,18 @@
                 <div>
                     <img class="account-image" :src="`./img/avatar${contacts[0].avatar}.jpg`" alt="">
 
-                    <span class="name-user">{{contacts[0].name}}</span>
+                    <div>
+                        <span class="name-user">{{contacts[0].name}}</span>
+                        <span class="last-access">Ultimo accesso oggi alle 10:35</span>
+                    </div>
 
                 </div>
 
                 <!-- icon user -->
                 <div>
-                    <i class="fas fa-circle-notch"></i>
-                    <i class="fas fa-comment new-message"></i>
-                    <i class="fas fa-ellipsis-v"></i>
+                    <i class="fas fa-search cursor-pointer"></i>
+                    <i class="fas fa-paperclip cursor-pointer"></i>
+                    <i class="fas fa-ellipsis-v cursor-pointer"></i>
 
                 </div>
 

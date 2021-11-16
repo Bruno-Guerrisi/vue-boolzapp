@@ -27,6 +27,17 @@ body{
     background-color: white;
 }
 
+/* utilities */
+.cursor-pointer:hover{
+    cursor: pointer;
+}
+.d-block{
+    display: block;
+}
+.color-gray-text{
+    color: #a3a3a3;
+}
+
 /* LEFT CONTAINER */
 .left-container{
     width: 40%;
@@ -47,13 +58,21 @@ body{
 .notifications{
     width: 100%;
     height: 70px;
-    background-color: blue;
+    background-color: #a2dffe;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
 }
 
 .search-contact{
     width: 100%;
     height: 40px;
-    background-color: rgb(121, 121, 197);
+    background-color: #fbfbfb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px;
 }
 
 .contact{
@@ -61,11 +80,12 @@ body{
     height: calc(100% - 175px);
     background-color: green;
     overflow-y: auto;
+    padding: 0 10px;
 }
 
 
 /* LEFT CONTAINER => user section */
-.user-section div{
+.user-section > div{
     display: flex;
     align-items: center;
 }
@@ -82,22 +102,89 @@ body{
 
 .user-section div:last-child i{
     font-size: 18px;
-    color: #bababa;
+    color: #a3a3a3;
 }
 .user-section div:last-child i:nth-child(2){
-    margin: 0 10px;
+    margin: 0 15px;
 }
 .user-section div:last-child i:last-child{
     margin-right: 10px;
 }
 
+/* LEFT CONTAINER => notifications section */
+.notifications > div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon-notifications{
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+}
+.icon-notifications i{
+    color: #a2dffe;
+}
+
+.notifications > div:nth-child(2) a{
+    color: #a3a3a3;
+}
+
+/* LEFT CONTAINER => search section */
+.search-button{
+    width: 20%;
+    height: 100%;
+    border: 0;
+    border-right: 1px solid #dfdfdf;
+    background-color: transparent;
+}
+
+.container-search > input{
+    width: 80%;
+    height: 100%;
+    border: 0;
+    padding-left: 5px;
+    background-color: transparent;
+}
+
+.container-search > input:focus{
+    border:1px solid rgba(56, 56, 236, 0.432);
+}
+
+.container-search{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 80%;
+    border: 1px solid #dfdfdf;
+    border-radius: 5px;
+}
+
+/* LEFT CONTAINER => search section */
+
+
 
 
 /* RIGHT CONTAINER */
 .right-container{
-    width: 100%;
+    width: 60%;
 }
 
+/* RIGHT CONTAINER => user section */
 .right-container .user-section{
     border-left: 1px solid #bababa;
+}
+.right-container .user-section .name-user{
+    display: block;
+}
+.last-access{
+    display: block;
+    color: #a3a3a3;
 }

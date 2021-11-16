@@ -5,7 +5,7 @@ const app = new Vue({
     data: {
 
         user:{
-            nameUser: 'Pippo Benestante',
+            nameUser: 'Pippo',
             avatar: '_io',
         },
 
@@ -93,5 +93,6 @@ const app = new Vue({
                 ],
             },
         ]
+        
     },
 })
