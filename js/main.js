@@ -5,7 +5,7 @@ const app = new Vue({
     data: {
 
         user:{
-            nameUser: 'Pippo',
+            nameUser: 'Noemi',
             avatar: '_io',
         },
 
