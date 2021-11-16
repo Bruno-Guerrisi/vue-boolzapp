@@ -78,9 +78,7 @@ body{
 .contact{
     width: 100%;
     height: calc(100% - 175px);
-    background-color: green;
     overflow-y: auto;
-    padding: 0 10px;
 }
 
 
@@ -163,23 +161,34 @@ body{
     align-items: center;
     width: 100%;
     height: 80%;
-    border: 1px solid #dfdfdf;
+    border: 1px solid #ececec;
     border-radius: 5px;
 }
 
 /* LEFT CONTAINER => search section */
+.list-contact{
+    height: 70px;
+    list-style: none;
+    border-bottom: 1px solid #f1f1f1;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+}
 
-
-
+.list-contact > img{
+    margin-right: 10px ;
+}
 
 /* RIGHT CONTAINER */
 .right-container{
     width: 60%;
+    display: flex;
+    flex-direction: column;
 }
 
 /* RIGHT CONTAINER => user section */
-.right-container .user-section{
-    border-left: 1px solid #bababa;
+.right-container .user-section {
+    border-left: 1px solid #cfcfcf;
 }
 .right-container .user-section .name-user{
     display: block;
@@ -187,4 +196,68 @@ body{
 .last-access{
     display: block;
     color: #a3a3a3;
+}
+
+
+/* RIGHT CONTAINER => message section */
+.message{
+    flex-grow: 1;
+    overflow-y: auto;
+    background-image: url(../img/mine.jpg);
+}
+
+.send-message{
+    width: 100%;
+    min-height: 70px;
+    background-color: red;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding-right: 30px;
+    margin-bottom: 10px;
+}
+
+.box-message{
+    min-width: 100px;
+    min-height: 50px;
+    max-width: 400px;
+    background-color: green;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.receive-message{
+    width: 100%;
+    min-height: 70px;
+    background-color: red;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding-left: 30px;
+    margin-bottom: 10px;
+}
+
+
+
+/* RIGHT CONTAINER => footer chat section */
+.footer-chat{
+    height: 50px;
+    width: 100%;
+    background-color: #f4f0ed;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.footer-chat i{
+    font-size: 22px;
+    color: #777e82;
+}
+
+.footer-text-chat{
+    width: 75%;
+    height: 60%;
+    border: 0;
+    padding-left: 10px;
+    border-radius: 5px;
 }

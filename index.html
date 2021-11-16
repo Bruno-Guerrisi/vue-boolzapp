@@ -79,7 +79,18 @@
             </section>
 
             <!-- LEFT CONTAINER => contact section  -->
-            <section class="contact"></section>
+            <section class="contact">
+
+                <ul>
+                    <li v-for="contact in contacts" class="list-contact cursor-pointer">
+
+                        <img class="account-image" :src="`./img/avatar${contact.avatar}.jpg`" alt="">
+
+                        <span class="name-user">{{contact.name}}</span>
+                    </li>
+
+                </ul>
+            </section>
         </div>
 
 
@@ -87,6 +98,7 @@
         <!-- right section chat -->
         <div class="right-container">
 
+            <!-- RIGHT CONTAINER => user section -->
             <section class="user-section">
 
                 <!-- image and name user -->
@@ -108,6 +120,36 @@
 
                 </div>
 
+            </section>
+
+            <!-- RIGHT CONTAINER => message section -->
+            <section class="message">
+
+                <div class="send-message">
+
+                    <span class="box-message">
+                        <span class="text-message">d</span>
+
+                    </span>
+
+                </div>
+
+                <div class="receive-message">
+
+                    <span class="box-message">
+                        <span class="text-message">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas suscipit sequi quam rerum incidunt cum similique! Maiores quod, vel sunt veniam, adipisci necessitatibus odio rem itaque tenetur laborum beatae. Quisquam!</span>
+
+                    </span>
+                </div>
+
+            </section>
+
+            <!-- RIGHT CONTAINER => footer chat section -->
+            <section class="footer-chat">
+
+                <i class="far fa-smile cursor-pointer"></i>
+                <input type="text" class="footer-text-chat" placeholder="Scrivi un messaggio">
+                <i class="fas fa-microphone cursor-pointer"></i>
             </section>
         </div>
 
