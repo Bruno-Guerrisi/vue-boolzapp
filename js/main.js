@@ -57,7 +57,7 @@ const app = new Vue({
                         status: 'sent'
                     }
                 ],
-            },    
+            },
             {
                 name: 'Samuele',
                 avatar: '_3',
@@ -101,7 +101,7 @@ const app = new Vue({
 
         lastAcces: dayjs().format('HH:mm'),
 
-        answers: ['ok', 'va bene', 'ci vediamo dopo', 'ha chiamato Luca, dobbiamo andare a casa sua', 'questa sera calcetto!', 'vuoi giocare a qualcosa?'],
+        answers: ['ok', 'va bene', 'ci vediamo dopo', 'ha chiamato Luca, dobbiamo andare a casa sua', 'questa sera calcetto!', 'vuoi giocare a qualcosa?', 'in che senso?'],
     },
 
     created(){
@@ -135,6 +135,8 @@ const app = new Vue({
                 this.contacts[this.activeChat].messages.push(newMessage);
                 console.log(this.randomNumber());
 
+                this.addScroll();
+
                 setTimeout(() => {
                     
                     const newMessageReceived = {
@@ -145,6 +147,8 @@ const app = new Vue({
 
                     this.contacts[this.activeChat].messages.push(newMessageReceived);
 
+
+                    this.addScroll();
                 }, 2000);
 
                 this.newMessage = '';
@@ -153,5 +157,27 @@ const app = new Vue({
             }
         },
 
+        addScroll(){
+            setTimeout(() => {
+                    
+                this.$refs.scroll.scrollTop = this.$refs.scroll.scrollHeight;
+            }, 1);
+        },
+
     },
 })
+
+
+/* let elmnt = document.querySelector(".message"); */
+
+
+
+/* const scroll = setInterval(() => {
+
+    elmnt.scrollTop = 6000;
+}, 0);
+
+if (elmnt.scrollTop < 350) {
+
+    clearInterval(scroll);
+} */

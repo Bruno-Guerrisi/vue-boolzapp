@@ -193,6 +193,8 @@ input:focus{
 /* RIGHT CONTAINER => user section */
 .right-container .user-section {
     border-left: 1px solid #cfcfcf;
+    display: flex;
+    flex-shrink: 0;
 }
 .right-container .user-section .name-user{
     display: block;
@@ -263,6 +265,7 @@ input:focus{
     width: 100%;
     background-color: #f4f0ed;
     display: flex;
+    flex-shrink: 0;
     align-items: center;
     justify-content: space-evenly;
 }
