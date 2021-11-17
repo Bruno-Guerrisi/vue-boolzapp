@@ -57,7 +57,8 @@ const app = new Vue({
                         status: 'sent'
                     }
                 ],
-            },    {
+            },    
+            {
                 name: 'Samuele',
                 avatar: '_3',
                 visible: true,
@@ -99,6 +100,11 @@ const app = new Vue({
         ],
     },
 
+    created(){
+        dayjs();
+
+    },
+
     methods:{
 
         currentChat(i){
@@ -114,30 +120,30 @@ const app = new Vue({
             if (message !== '') {
 
                 const newMessage = {
-                    date: '28/03/2020 16:15:22',
+                    date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
                     text: message,
                     status: 'sent',
                 } 
 
-                
                 this.contacts[this.activeChat].messages.push(newMessage);
 
                 setTimeout(() => {
                     
                     const newMessageReceived = {
-                        date: '28/03/2020 16:15:22',
+                        date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
                         text: 'ok',
                         status: 'received',
                     }
 
                     this.contacts[this.activeChat].messages.push(newMessageReceived);
 
-                }, 1000);
+                }, 2000);
 
                 this.newMessage = '';
 
                 this.$refs.messInput.focus();
             }
-        }
+        },
+
     },
 })
