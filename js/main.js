@@ -118,6 +118,8 @@ const app = new Vue({
         currentChat(i){
 
             this.activeChat = i;
+
+            this.addScroll();
         },
 
         sendMessage(){
@@ -158,11 +160,21 @@ const app = new Vue({
         },
 
         addScroll(){
+            
             setTimeout(() => {
                     
                 this.$refs.scroll.scrollTop = this.$refs.scroll.scrollHeight;
             }, 1);
         },
+
+        deleteChat(){
+
+            this.contacts[this.activeChat].messages.splice(0);
+        },
+
+        downMenuChat(){
+            this.$refs.menuChat.classList.toggle('spownNone');
+        }
 
     },
 })
