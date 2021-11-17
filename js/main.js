@@ -98,18 +98,26 @@ const app = new Vue({
                 ],
             },
         ],
+
+        lastAcces: dayjs().format('HH:mm'),
+
+        answers: ['ok', 'va bene', 'ci vediamo dopo', 'ha chiamato Luca, dobbiamo andare a casa sua', 'questa sera calcetto!', 'vuoi giocare a qualcosa?'],
     },
 
     created(){
+
         dayjs();
     },
 
     methods:{
 
+        randomNumber() {
+            return number = Math.floor(Math.random() * this.answers.length);
+        },
+
         currentChat(i){
 
             this.activeChat = i;
-            console.log(i);
         },
 
         sendMessage(){
@@ -125,12 +133,13 @@ const app = new Vue({
                 } 
 
                 this.contacts[this.activeChat].messages.push(newMessage);
+                console.log(this.randomNumber());
 
                 setTimeout(() => {
                     
                     const newMessageReceived = {
                         date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
-                        text: 'ok',
+                        text: this.answers[this.randomNumber()],
                         status: 'received',
                     }
 

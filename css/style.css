@@ -102,7 +102,7 @@ input:focus{
     margin-right: 5px;
 }
 .name-user{
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .user-section div:last-child i{
@@ -137,8 +137,8 @@ input:focus{
     color: #a2dffe;
 }
 
-.notifications > div:nth-child(2) a{
-    color: #a3a3a3;
+.notifications:nth-child(2) div a{
+    font-size: 14px;
 }
 
 /* LEFT CONTAINER => search section */
@@ -200,6 +200,7 @@ input:focus{
 .last-access{
     display: block;
     color: #a3a3a3;
+    font-size: 14px;
 }
 
 
@@ -230,6 +231,7 @@ input:focus{
     border-radius: 5px;
     padding: 10px 10px 20px 10px;
     position: relative;
+    overflow-wrap: break-word;
 }
 
 .receiveMessage{
