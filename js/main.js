@@ -4,6 +4,10 @@ const app = new Vue({
 
     data: {
 
+        newMessage: "",
+
+        activeChat: 0,
+
         user:{
             nameUser: 'Noemi',
             avatar: '_io',
@@ -92,7 +96,48 @@ const app = new Vue({
                     }
                 ],
             },
-        ]
-        
+        ],
+    },
+
+    methods:{
+
+        currentChat(i){
+
+            this.activeChat = i;
+            console.log(i);
+        },
+
+        sendMessage(){
+            const message = this.newMessage;
+
+
+            if (message !== '') {
+
+                const newMessage = {
+                    date: '28/03/2020 16:15:22',
+                    text: message,
+                    status: 'sent',
+                } 
+
+                
+                this.contacts[this.activeChat].messages.push(newMessage);
+
+                setTimeout(() => {
+                    
+                    const newMessageReceived = {
+                        date: '28/03/2020 16:15:22',
+                        text: 'ok',
+                        status: 'received',
+                    }
+
+                    this.contacts[this.activeChat].messages.push(newMessageReceived);
+
+                }, 1000);
+
+                this.newMessage = '';
+
+                this.$refs.messInput.focus();
+            }
+        }
     },
 })

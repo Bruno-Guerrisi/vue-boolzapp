@@ -82,13 +82,14 @@
             <section class="contact">
 
                 <ul>
-                    <li v-for="contact in contacts" class="list-contact cursor-pointer">
+                    <li v-for="contact in contacts" 
+                        class="list-contact cursor-pointer"
+                        @click="currentChat(i)">
 
                         <img class="account-image" :src="`./img/avatar${contact.avatar}.jpg`" alt="">
 
                         <span class="name-user">{{contact.name}}</span>
                     </li>
-
                 </ul>
             </section>
         </div>
@@ -103,10 +104,10 @@
 
                 <!-- image and name user -->
                 <div>
-                    <img class="account-image" :src="`./img/avatar${contacts[0].avatar}.jpg`" alt="">
+                    <img class="account-image" :src="`./img/avatar${contacts[activeChat].avatar}.jpg`" alt="">
 
                     <div>
-                        <span class="name-user">{{contacts[0].name}}</span>
+                        <span class="name-user">{{contacts[activeChat].name}}</span>
                         <span class="last-access">Ultimo accesso oggi alle 10:35</span>
                     </div>
 
@@ -125,17 +126,20 @@
             <!-- RIGHT CONTAINER => message section -->
             <section class="message">
 
-                <div class="send-message">
+                <div 
+                    v-for="(contact, i) in contacts[activeChat].messages"
+                    :class="{sentMessage: contact.status === 'sent',
+                            receiveMessage: contact.status === 'received'}">
 
                     <span class="box-message">
-                        <span class="text-message">Messaggio inviato</span>
+                        <span class="text-message">{{contact.text}}</span>
 
-                        <span class="message-time">{{contacts[0].messages[0].date}}</span>
+                        <span class="message-time">{{contact.date}}</span>
                     </span>
 
                 </div>
 
-                <div class="receive-message">
+                <!-- <div class="receive-message">
 
                     <span class="box-message">
                         <span class="text-message">Messaggio ricevuto</span>
@@ -143,7 +147,7 @@
                         <span class="message-time">{{contacts[0].messages[0].date}}</span>
 
                     </span>
-                </div>
+                </div> -->
 
             </section>
 
@@ -151,7 +155,15 @@
             <section class="footer-chat">
 
                 <i class="far fa-smile cursor-pointer"></i>
-                <input type="text" class="footer-text-chat" placeholder="Scrivi un messaggio">
+
+                <input 
+                    type="text" 
+                    class="footer-text-chat" 
+                    placeholder="Scrivi un messaggio"
+                    v-model.trim="newMessage"
+                    @keyup.enter="sendMessage()"
+                    ref="messInput">
+
                 <i class="fas fa-microphone cursor-pointer"></i>
             </section>
         </div>
