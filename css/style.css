@@ -32,6 +32,8 @@ input:focus{
     min-height: 300px;
     background-color: white;
     box-shadow: 1px 1px 10px black;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 /* utilities */
