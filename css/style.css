@@ -43,6 +43,9 @@ input:focus{
 .d-block{
     display: block;
 }
+.dNone{
+    display: none;
+}
 .color-gray-text{
     color: #a3a3a3;
 }
@@ -292,10 +295,14 @@ input:focus{
     min-height: 50px;
     max-width: 400px;
     border-radius: 5px;
-    padding: 10px 10px 20px 10px;
+    padding: 10px 40px 30px 10px;
     position: relative;
     overflow-wrap: break-word;
 }
+
+/* .box-message:hover{
+    
+} */
 
 .receiveMessage{
     width: 100%;
