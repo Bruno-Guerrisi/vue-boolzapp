@@ -207,17 +207,17 @@ const app = new Vue({
         },
 
         darkMode(){
-            /* document.getElementById('darkBody').classList.toggle('darckBody'); */
+            document.getElementById('darkBackColor').classList.toggle('darkBack');
 
-            let arrayDarck = [];
+            /* let arrayDarck = [];
 
             arrayDarck = document.querySelectorAll('.darkBackColor');
             console.log(arrayDarck);
 
             arrayDarck.forEach(element => {
                 console.log(element);
-                element.classList.add('darkBack');
-            });
+                element.classList.toggle('darkBack');
+            }); */
         }
     },
 })

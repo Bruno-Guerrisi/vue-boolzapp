@@ -5,6 +5,73 @@
     font-family: 'Lato', sans-serif;
 }
 
+/* ----------------darck mode------------------- */
+.darkBack{
+    color: white;
+    transition: background 0.4s;
+}
+
+#darkBackColor.darkBack .search-contact input{
+    color: white;
+}
+
+body#darkBackColor.darkBack{
+
+    background-image: linear-gradient(
+            to bottom,
+            #32a093 0%,
+            #32a093 20%,
+            rgb(24, 24, 24) 20%,
+            rgb(24, 24, 24) 100%
+        );
+}
+
+#darkBackColor.darkBack .search-contact,
+#darkBackColor.darkBack .user-section,
+#darkBackColor.darkBack .container{
+    background-color: rgb(37, 37, 37);
+}
+
+#darkBackColor.darkBack .footer-chat{
+    border-left: 1px solid #f1f1f1;
+    background-color: rgb(37, 37, 37);
+}
+
+#darkBackColor.darkBack .footer-text-chat{
+    background-color: rgb(94, 87, 87);
+    color: white;
+}
+
+#darkBackColor.darkBack .chatActive,
+#darkBackColor.darkBack .contact ul li:hover{
+    background-color: rgb(94, 87, 87);
+}
+
+#darkBackColor.darkBack .notifications{
+
+    background-color: #174c66;
+}
+
+#darkBackColor.darkBack .notifications .icon-notifications i{
+
+    color: #174c66;
+}
+
+#darkBackColor.darkBack .sentMessage .box-message {
+    background-color: #056162;
+}
+
+#darkBackColor.darkBack .receiveMessage .box-message{
+    background-color: #272e32;
+}
+
+#darkBackColor.darkBack .message{
+    background-image: url(../img/mineDark.jpg);
+    background-size: 380px;
+}
+
+/* --------------fine dark------------ */
+
 body{
     height: 100vh;
     background-image: linear-gradient(
@@ -374,61 +441,4 @@ input:focus{
 
 .receiveMessage .messageChatMenu .spown-ellipsis{
     left: 0;
-}
-
-
-/* darck mode */
-.darkBack{
-    color: white;
-}
-
-.search-contact.darkBackColor.darkBack input{
-    color: white;
-}
-
-body.darkBackColor.darkBack{
-
-    background-image: linear-gradient(
-            to bottom,
-            #32a093 0%,
-            #32a093 20%,
-            rgb(24, 24, 24) 20%,
-            rgb(24, 24, 24) 100%
-        );
-}
-
-body .container .darkBack{
-    background-color: rgb(37, 37, 37);
-}
-
-.footer-chat.darkBackColor.darkBack{
-    border-left: 1px solid #f1f1f1;
-}
-
-.chatActive.darkBackColor.darkBack,
-.contact ul li.darkBackColor.darkBack:hover{
-    background-color: rgb(94, 87, 87);
-}
-
-.notifications.darkBackColor.darkBack{
-
-    background-color: #174c66;
-}
-
-.notifications.darkBackColor.darkBack .icon-notifications i{
-
-    color: #174c66;
-}
-
-.sentMessage .box-message.darkBackColor.darkBack {
-    background-color: #056162;
-}
-
-.receiveMessage .box-message.darkBackColor.darkBack {
-    background-color: #272e32;
-}
-
-.message.darkBackColor.darkBack{
-    background-image: url(../img/mineDark.jpg);
-    background-size: contain;
 }

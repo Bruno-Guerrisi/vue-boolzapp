@@ -24,15 +24,15 @@
 
     <title>BoolZapp</title>
 </head>
-<body class="darkBackColor">
+<body id="darkBackColor">
 
     <div id="app" class="container">
 
         <!-- left section -->
-        <div class="left-container darkBackColor">
+        <div class="left-container">
 
             <!-- LEFT CONTAINER => user section  -->
-            <section class="user-section darkBackColor">
+            <section class="user-section">
 
                 <!-- image and name user -->
                 <div>
@@ -53,7 +53,7 @@
             </section>
 
             <!-- LEFT CONTAINER => notifications section  -->
-            <section class="notifications darkBackColor">
+            <section class="notifications">
 
                 <div>
                     <div class="icon-notifications">
@@ -69,7 +69,7 @@
             </section>
 
             <!-- LEFT CONTAINER => search section  -->
-            <section class="search-contact darkBackColor">
+            <section class="search-contact">
 
                 <div class="container-search">
 
@@ -90,7 +90,7 @@
 
                 <ul>
                     <li v-for="(contact, i) in contacts"
-                        class="list-contact cursor-pointer darkBackColor"
+                        class="list-contact cursor-pointer"
                         :class="{chatActive: activeChat == i}"
                         v-show="contact.visible == true"
                         @click="currentChat(i)">
@@ -109,7 +109,7 @@
         <div class="right-container">
 
             <!-- RIGHT CONTAINER => user section -->
-            <section class="user-section darkBackColor">
+            <section class="user-section">
 
                 <!-- image and name user -->
                 <div>
@@ -147,7 +147,7 @@
 
             <!-- RIGHT CONTAINER => message section -->
             <section 
-                class="message darkBackColor"
+                class="message"
                 ref="scroll">
 
                 <div 
@@ -155,7 +155,7 @@
                     :class="{sentMessage: contact.status === 'sent',
                             receiveMessage: contact.status === 'received'}">
 
-                    <span class="box-message darkBackColor">
+                    <span class="box-message">
                         <span class="text-message" ref="message">{{contact.text}}</span>
 
                         <span class="message-time">{{contact.date}}</span>
@@ -191,7 +191,7 @@
             </section>
 
             <!-- RIGHT CONTAINER => footer chat section -->
-            <section class="footer-chat darkBackColor">
+            <section class="footer-chat">
 
                 <i class="far fa-smile cursor-pointer" @click="downMenuChat()"></i>
 
