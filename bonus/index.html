@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- font family -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Roboto&display=swap" rel="stylesheet">
+
+    <!-- vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.7/dayjs.min.js"></script>
+
+
+    <!-- font awesome -->
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css' integrity='sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==' crossorigin='anonymous'/>
+
+    <!-- css -->
+    <link rel="stylesheet" href="./css/style.css">
+
+    <title>BoolZapp</title>
+</head>
+<body class="darkBackColor">
+
+    <div id="app" class="container">
+
+        <!-- left section -->
+        <div class="left-container darkBackColor">
+
+            <!-- LEFT CONTAINER => user section  -->
+            <section class="user-section darkBackColor">
+
+                <!-- image and name user -->
+                <div>
+                    <img class="account-image" :src="`./img/avatar${user.avatar}.jpg`" alt="">
+
+                    <span class="name-user">{{user.nameUser}}</span>
+
+                </div>
+
+                <!-- icon user -->
+                <div>
+                    <i class="fas fa-circle-notch cursor-pointer"></i>
+                    <i class="fas fa-comment-alt cursor-pointer"></i>
+                    <i class="fas fa-ellipsis-v cursor-pointer"></i>
+
+                </div>
+
+            </section>
+
+            <!-- LEFT CONTAINER => notifications section  -->
+            <section class="notifications darkBackColor">
+
+                <div>
+                    <div class="icon-notifications">
+                        <i class="fas fa-bell-slash"></i>
+                    </div>
+
+                    <div>
+                        <span class="d-block">Ricevi notifiche di nuovi messaggi</span>
+                        <a href="#" class="d-block color-gray-text">Attiva notifiche desktop</a>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- LEFT CONTAINER => search section  -->
+            <section class="search-contact darkBackColor">
+
+                <div class="container-search">
+
+                    <button class="search-button cursor-pointer">
+                        <i class="fas fa-search cursor-pointer color-gray-text"></i>
+                    </button>
+
+                    <input type="text" 
+                           class="color-gray text" 
+                           placeholder="Cerca o inizia una nuova chat"
+                           v-model.trim="nameSearch"
+                           @keyup="search()">
+                </div>
+            </section>
+
+            <!-- LEFT CONTAINER => contact section  -->
+            <section class="contact">
+
+                <ul>
+                    <li v-for="(contact, i) in contacts"
+                        class="list-contact cursor-pointer darkBackColor"
+                        :class="{chatActive: activeChat == i}"
+                        v-show="contact.visible == true"
+                        @click="currentChat(i)">
+
+                        <img class="account-image" :src="`./img/avatar${contact.avatar}.jpg`" alt="">
+
+                        <span class="name-user">{{contact.name}}</span>
+                    </li>
+                </ul>
+            </section>
+        </div>
+
+
+
+        <!-- right section chat -->
+        <div class="right-container">
+
+            <!-- RIGHT CONTAINER => user section -->
+            <section class="user-section darkBackColor">
+
+                <!-- image and name user -->
+                <div>
+                    <img class="account-image" :src="`./img/avatar${contacts[activeChat].avatar}.jpg`" alt="">
+
+                    <div>
+                        <span class="name-user">{{contacts[activeChat].name}}</span>
+                        <span class="last-access">Ultimo accesso oggi alle {{lastAcces}}</span>
+                    </div>
+
+                </div>
+
+                <!-- icon user -->
+                <div class="icone-chat">
+                    <i class="fas fa-adjust cursor-pointer"
+                        @click="darkMode"></i>
+                    <i class="fas fa-search cursor-pointer"></i>
+                    <i class="fas fa-paperclip cursor-pointer"></i>
+                    <i class="menu-chat fas fa-ellipsis-v cursor-pointer"
+                       @click="downMenuUserChat" >
+
+                        <div class="spown-ellipsis spownNone menuUserChat"
+                        ref="menuUserChat">
+                        <ul>
+                                <li>
+                                    <span>Elimina chat</span>
+                                    <i class="fas fa-trash-alt" @click="deleteChat"></i>
+                                </li>
+                            </ul>
+                            
+                        </div>
+                    </i>
+                </div>
+            </section>
+
+            <!-- RIGHT CONTAINER => message section -->
+            <section 
+                class="message darkBackColor"
+                ref="scroll">
+
+                <div 
+                    v-for="(contact, i) in contacts[activeChat].messages"
+                    :class="{sentMessage: contact.status === 'sent',
+                            receiveMessage: contact.status === 'received'}">
+
+                    <span class="box-message darkBackColor">
+                        <span class="text-message" ref="message">{{contact.text}}</span>
+
+                        <span class="message-time">{{contact.date}}</span>
+
+                        <i class="fas fa-chevron-down messageChatMenu cursor-pointer" 
+                            @click="spownMenuChat(i)">
+
+                            <div class="spown-ellipsis spownChatMenu"
+                                ref="menuMessage">
+                                <ul>
+                                    <li>
+                                        <span>Elimina messaggio</span>
+                                        <i class="fas fa-trash-alt" @click="deleteMessage(i)"></i>
+                                    </li>
+                                </ul>
+                                
+                            </div>
+                        </i>
+                    </span>
+
+                </div>
+
+                <!-- <div class="receive-message">
+
+                    <span class="box-message">
+                        <span class="text-message">Messaggio ricevuto</span>
+
+                        <span class="message-time">{{contacts[0].messages[0].date}}</span>
+
+                    </span>
+                </div> -->
+
+            </section>
+
+            <!-- RIGHT CONTAINER => footer chat section -->
+            <section class="footer-chat darkBackColor">
+
+                <i class="far fa-smile cursor-pointer" @click="downMenuChat()"></i>
+
+                <input 
+                    type="text" 
+                    class="footer-text-chat" 
+                    placeholder="Scrivi un messaggio"
+                    v-model.trim="newMessage"
+                    @keyup.enter="sendMessage()"
+                    ref="messInput">
+
+                <i class="fas fa-microphone cursor-pointer"></i>
+            </section>
+        </div>
+
+    </div>
+
+    
+    <script src="./js/main.js"></script>
+</body>
+</html>
